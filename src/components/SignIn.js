@@ -1,39 +1,28 @@
 import "./SignIn.css";
 import React, { Component } from "react";
-import { connect } from "react-redux";
-import { signIn } from "../actions";
-import "./SignIn.css";
-import PropTypes from "prop-types";
-
+import { firebaseConnect } from 'react-redux-firebase'
+import GoogleButton from 'react-google-button'
 class Signin extends Component {
-    static contextTypes = {
-        router: PropTypes.object
-    };
 
-    componentWillUpdate(nextProps) {
-        if (nextProps.auth) {
-            this.context.router.history.push("/app");
-        }
-    }
 
     render() {
+        const googleLogin =() =>
+        {
+            this.props.firebase
+                .login({ provider: 'google', type: 'popup' })
+        }
         return (
-            <div className="row social-signin-container">
-                <div className="col s10 offset-s1 center-align">
+            <div className="containerSignin">
 
-                    <h4 id="sign-in-header">Sign In to start</h4>
-                    <a href="#" className="social-signin" onClick={this.props.signIn}>
-                        <i className="fa fa-google social-signin-icon" />
-                        Sign In With Google
-                    </a>
-                </div>
+                    <span className="Label">Signin with google to start chat</span>
+                <div>
+                    <GoogleButton onClick={googleLogin} />
+                    </div>
+
             </div>
         );
     }
 }
 
-function mapStateToProps({ auth }) {
-    return { auth };
-}
 
-export default connect(mapStateToProps, { signIn })(Signin);
+export default firebaseConnect()(Signin);

@@ -1,28 +1,18 @@
-import React, { Component } from "react";
-import Home from "./components/Home";
-import SignIn from "./components/SignIn";
-import requireAuth from "./components/auth/requireAuth";
-import { BrowserRouter, Route } from "react-router-dom";
-import { connect } from "react-redux";
-import { fetchUser } from "./actions";
+import React from 'react'
+import PropTypes from 'prop-types'
+import { ConnectedRouter } from 'connected-react-router'
+import routes from './routes'
 
-
-class App extends Component {
-    componentWillMount() {
-        this.props.fetchUser();
-    }
-
-    render() {
-        return (
-            <BrowserRouter>
-                <div className="container">
-
-                    <Route exact path="/" component={SignIn} />
-                    <Route path="/app" component={requireAuth(Home)} />
-                </div>
-            </BrowserRouter>
-        );
-    }
+const App = ({ history }) => {
+    return (
+        <ConnectedRouter history={history}>
+            { routes }
+        </ConnectedRouter>
+    )
 }
 
-export default connect(null, { fetchUser })(App);
+App.propTypes = {
+    history: PropTypes.object,
+}
+
+export default App

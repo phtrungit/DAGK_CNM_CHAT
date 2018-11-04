@@ -1,0 +1,10 @@
+.imgAvatar
+{
+    width: 52px;
+    height: 52px;
+}
+.displayName
+{
+    position: relative;
+    left: 10px;
+}

@@ -1,20 +1,38 @@
-import "materialize-css/dist/css/materialize.min.css";
-import "materialize-css/dist/js/materialize.min.js";
-import React from "react";
-import ReactDOM from "react-dom";
-import { Provider } from "react-redux";
-import { createStore, applyMiddleware } from "redux";
-import reduxThunk from "redux-thunk";
-import reducers from "./reducers";
-import App from "./App";
-import * as serviceWorker from './serviceWorker';
+import { AppContainer } from 'react-hot-loader'
+import { createBrowserHistory } from 'history'
+import { Provider } from 'react-redux'
+import React from 'react'
+import ReactDOM from 'react-dom'
+import App from './App'
+import rootReducer from './reducers'
+import configureStore from './store'
+const history = createBrowserHistory();
 
-const store = createStore(reducers, {}, applyMiddleware(reduxThunk));
+const initialState = window.__INITIAL_STATE__
+const store = configureStore(initialState,history);
 
-ReactDOM.render(
-    <Provider store={store}>
-        <App />
-    </Provider>,
-    document.getElementById("root")
-);
-serviceWorker.unregister();
+const render = () => {
+    ReactDOM.render(
+        <AppContainer>
+            <Provider store={store}>
+                <App history={history} />
+            </Provider>
+        </AppContainer>,
+        document.getElementById('root')
+    )
+}
+
+render()
+
+// Hot reloading
+if (module.hot) {
+    // Reload components
+    module.hot.accept('./App', () => {
+        render()
+    })
+
+    // Reload reducers
+    module.hot.accept('./reducers', () => {
+        store.replaceReducer(rootReducer(history))
+    })
+}
