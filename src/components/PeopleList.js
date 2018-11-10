@@ -24,7 +24,7 @@ class PeopleList extends Component{
                             : Object.keys(this.props.users).map((key) => {
                                 if(this.props.users[key].email!==this.props.profile.email)
                                     return <UserStatus user={this.props.users[key]} key={key} />
-                    })
+                            })
                     }
                 </ul>
             </div>

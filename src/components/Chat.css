@@ -8,3 +8,9 @@
     width: 16px;
     height: 16px;
 }
+.imgMessage
+{
+    position: relative;
+    width: 140px;
+    height: 200px;
+}
