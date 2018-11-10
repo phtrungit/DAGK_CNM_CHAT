@@ -1,28 +1,19 @@
-import "./SignIn.css";
-import React, { Component } from "react";
-import { firebaseConnect } from 'react-redux-firebase'
+import React from 'react'
+import { compose } from 'redux'
+import { withFirebase } from 'react-redux-firebase'
+import  {UserIsNotAuthenticated} from "./UserIsAuthenticated";
 import GoogleButton from 'react-google-button'
-class Signin extends Component {
+import './SignIn.css'
+const Login = ({ firebase }) => (
+    <div className="containerSignin">
+        <span className="Label">Sign in to start chat</span>
+        <GoogleButton onClick={() => firebase.login({ provider: 'google' })}>
+            Google Login
+        </GoogleButton>
+    </div>
+)
 
-
-    render() {
-        const googleLogin =() =>
-        {
-            this.props.firebase
-                .login({ provider: 'google', type: 'popup' })
-        }
-        return (
-            <div className="containerSignin">
-
-                    <span className="Label">Signin with google to start chat</span>
-                <div>
-                    <GoogleButton onClick={googleLogin} />
-                    </div>
-
-            </div>
-        );
-    }
-}
-
-
-export default firebaseConnect()(Signin);
+export default compose(
+    UserIsNotAuthenticated, // redirects to '/' if user is logged in
+    withFirebase // adds this.props.firebase
+)(Login)

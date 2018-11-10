@@ -1,0 +1,16 @@
+.Loading
+{
+    box-sizing: border-box;
+
+    align-items: center;
+    padding-top: 1.5rem;
+    position: relative;
+    margin: auto;
+    top: 0;
+    right: 0;
+
+    left: 0;
+    width:800px;
+    height: 400px;
+    border-radius: 3px;
+}

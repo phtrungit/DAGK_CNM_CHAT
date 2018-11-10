@@ -1,13 +1,16 @@
 import React, { Component } from "react";
+import { compose } from 'redux'
+import { withFirebase } from 'react-redux-firebase'
 import {connect} from 'react-redux'
 import AppBar from '@material-ui/core/AppBar'
 import Toolbar from '@material-ui/core/Toolbar'
 import Button from '@material-ui/core/Button'
-import Typography from '@material-ui/core/Typography'
 import defaultUserImageUrl from '../static/User.png'
 import './Header.css'
 class Header extends Component{
     render(){
+        console.log("Firebase profile");
+        console.log(this.props.profile)
   return(
 
       <div>
@@ -23,11 +26,7 @@ class Header extends Component{
                   <Button onClick={()=>this.props.firebase.logout()}>
                       Logout
                   </Button>
-                  <Typography
-                      type="title"
-                      color="inherit"
-                      >
-                  </Typography>
+
 
               </Toolbar>
           </AppBar>
@@ -36,4 +35,4 @@ class Header extends Component{
 };
 
 }
-export default connect(({ firebase: { profile } }) => ({ profile }))(Header);
+export default compose(withFirebase,connect(({ firebase: { profile } }) => ({ profile })))(Header);
