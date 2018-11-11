@@ -4,7 +4,7 @@ import ChatMessage from './ChatMessage'
 import ChatForm from './ChatForm'
 import {connect} from "react-redux";
 import { compose } from 'redux'
-
+import Uploader from './Uploader'
 import {
     firebaseConnect
 } from 'react-redux-firebase'
@@ -33,6 +33,7 @@ class Chat extends Component{
 
                     </ul>
                 </div>
+                <Uploader/>
                 <ChatForm/>
             </div>
         )

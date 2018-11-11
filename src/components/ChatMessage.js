@@ -3,9 +3,14 @@ import './Chat.css'
 class ChatMessage extends Component{
     render(){
         let image="";
+        let text="";
         if(this.props.messages.text.match(/\.(jpeg|jpg|png|gif)/g) !=null)
         {
             image=<img src={this.props.messages.text} className="imgMessage"/>
+        }
+        if(!this.props.messages.text.startsWith('https://firebasestorage.googleapis.com'))
+        {
+            text=this.props.messages.text
         }
         const clf="clearfix";
         const alir="align-right";
@@ -19,7 +24,7 @@ class ChatMessage extends Component{
 
                 <div className="message other-message float-right">
 
-                    {this.props.messages.text}
+                    {text}
                     {image}
                 </div>
             </li>
