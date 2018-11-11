@@ -10,7 +10,8 @@ const config = {
     userProfile: 'users', // firebase root where user profiles are stored
     enableLogging: false, // enable/disable Firebase's database logging
     presence: 'presence', // where list of online users is stored in database
-    sessions: 'sessions' // where list of user sessions is stored in database (presence must be enabled)
+    sessions: 'sessions', // where list of user sessions is stored in database (presence must be enabled)
+
 }
 
 export default function configureStore (initialState, history) {

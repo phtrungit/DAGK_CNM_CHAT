@@ -14,8 +14,6 @@ const handlers = {
         props.firebase.uploadFiles(filesPath, files);
         let storage = props.firebase.storage();
         let storageRef = storage.ref();
-        console.log("storageRef");
-        console.log(storageRef);
         storageRef.child(`uploadedFiles/${files[0].name}`).getDownloadURL().then(function(url) {
             let today = new Date();
             let date = today.getDate() + '/' + (today.getMonth() + 1) + '/' + today.getFullYear() +" "+today.getHours()+":"+today.getMinutes()+":"+today.getSeconds();
@@ -29,7 +27,7 @@ const enhancerPropsTypes = {
     firebase: PropTypes.object.isRequired
 };
 const mapStateToProps =(state) =>{
-    console.log(state.chat);
+
     if(state.chat.user!==undefined)
         return{
             users: state.chat.user

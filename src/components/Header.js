@@ -9,8 +9,8 @@ import defaultUserImageUrl from '../static/User.png'
 import './Header.css'
 class Header extends Component{
     render(){
-        console.log("Firebase profile");
-        console.log(this.props.profile)
+
+
   return(
 
       <div>

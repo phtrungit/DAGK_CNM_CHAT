@@ -6,14 +6,12 @@ import {connect} from "react-redux";
 import { compose } from 'redux'
 import Uploader from './Uploader'
 import {
+    isEmpty, isLoaded,
     firebaseConnect
 } from 'react-redux-firebase'
-import {isEmpty, isLoaded} from "react-redux-firebase";
 
 class Chat extends Component{
     render(){
-
-        console.log(this.props.messages);
 
         return(
             <div className="chat">
@@ -40,7 +38,7 @@ class Chat extends Component{
     }
 }
 const mapStateToProps =(state) =>{
-    console.log(state.chat);
+
     if(state.chat.user!==undefined)
     return{
         users: state.chat.user

@@ -28,7 +28,7 @@ class ChatForm extends Component{
     }
 }
 const mapStateToProps =(state) =>{
-    console.log(state.chat);
+
     if(state.chat.user!==undefined)
         return{
             users: state.chat.user

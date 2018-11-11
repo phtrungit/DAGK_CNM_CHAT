@@ -2,6 +2,8 @@ import React, { Component } from "react";
 import { connect } from 'react-redux'
 import {selectPeople,setDefaultPeople} from '../actions'
 import './PeopleList.css'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+
 class UsersStatus extends Component{
     componentDidMount()
     {
@@ -11,7 +13,9 @@ class UsersStatus extends Component{
     render(){
 
     const userSel=this.props.user;
-
+    let classStatusIcon="";
+    if(this.props.status=='online')
+        classStatusIcon="statusIconOnline";
         return(
             <div>
                 <li className="clearfix">
@@ -19,7 +23,7 @@ class UsersStatus extends Component{
                     <div className="about">
                         <div className="name" onClick={()=>this.props.onSelectClick(userSel)}>{this.props.user.displayName}</div>
                         <div className="status">
-                            <i className="fa fa-circle online" /> online
+                            <FontAwesomeIcon className={classStatusIcon} icon="circle" /> {this.props.status}
                         </div>
                     </div>
                 </li>
