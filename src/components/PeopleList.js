@@ -8,22 +8,26 @@ import {
     populate
 } from 'react-redux-firebase'
 import UserStatus from './UsersStatus'
+import SearchInput, {createFilter} from 'react-search-input'
+
 const populates = [
     { child: 'presence', root: 'users' }
 ]
 class PeopleList extends Component{
-    render(){
-        const presentUser = () =>
-        {
-            if(isLoaded(this.props.presence))
-               if(!isEmpty(this.props.presence))
-                    console.log(this.props.presence)
+    constructor (props) {
+        super(props)
+        this.state = {
+            searchTerm: ''
         }
-        presentUser();
+        this.searchUpdated = this.searchUpdated.bind(this)
+    }
+    render(){
+
+        console.log(this.state.searchTerm);
         return(
             <div className="people-list" id="people-list">
                 <div className="search">
-                    <input type="text" placeholder="search" />
+                    <SearchInput className="search-input" onChange={this.searchUpdated} />
                     <i className="fa fa-search" />
                 </div>
                 <ul className="list">
@@ -38,7 +42,7 @@ class PeopleList extends Component{
                                 : isEmpty(this.props.presence)
                                     ? 'Todo list is empty'
                                     : Object.keys(this.props.users).map((key) => {
-                                if(this.props.users[key].email!==this.props.profile.email)
+                                if(this.props.users[key].email!==this.props.profile.email && this.props.users[key].displayName.startsWith(this.state.searchTerm))
                                     if(this.props.presence[key])
                                         return <UserStatus user={this.props.users[key]} key={key} status="online" />
                                 else
@@ -49,6 +53,9 @@ class PeopleList extends Component{
 
             </div>
         )
+    }
+    searchUpdated (term) {
+        this.setState({searchTerm: term})
     }
 }
 export default compose(
