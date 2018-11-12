@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { connect } from 'react-redux'
 import {selectPeople,setDefaultPeople} from '../actions'
-import './PeopleList.css'
+import '../style/PeopleList.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 class UsersStatus extends Component{

@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import ReactLoading from 'react-loading';
-import './LoadingScreen.css'
+import '../style/LoadingScreen.css'
 class LoadingScreen extends Component{
 
     render(){

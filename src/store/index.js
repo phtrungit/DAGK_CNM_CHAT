@@ -1,6 +1,6 @@
 import { createStore, compose } from 'redux'
 import  rootReducer from "../reducers/index"
-import { FirebaseConfig as fbConfig } from '../config/dev'
+import { FirebaseConfig as fbConfig } from '../config/index'
 import { reactReduxFirebase } from 'react-redux-firebase'
 import {routerMiddleware} from "connected-react-router";
 import {applyMiddleware} from "redux/src/index";

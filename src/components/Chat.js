@@ -31,6 +31,7 @@ class Chat extends Component{
 
                     </ul>
                 </div>
+                <span className="label">Upload image </span>
                 <Uploader/>
                 <ChatForm/>
             </div>

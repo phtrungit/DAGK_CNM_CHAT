@@ -4,6 +4,8 @@ import { connect } from 'react-redux'
 import {
     firebaseConnect
 } from 'react-redux-firebase'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+
 class ChatForm extends Component{
 
     render(){
@@ -22,7 +24,7 @@ class ChatForm extends Component{
                 <textarea type='text' ref={ref => { this.input = ref }} />
                 <i className="fa fa-file-o" /> &nbsp;&nbsp;&nbsp;
                 <i className="fa fa-file-image-o" />
-                <button onClick={handleSend}>Send</button>
+                <button onClick={handleSend}> <FontAwesomeIcon icon="arrow-circle-right" /> Send</button>
             </div>
         )
     }

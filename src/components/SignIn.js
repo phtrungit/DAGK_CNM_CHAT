@@ -3,7 +3,7 @@ import { compose } from 'redux'
 import { withFirebase } from 'react-redux-firebase'
 import  {UserIsNotAuthenticated} from "./UserIsAuthenticated";
 import GoogleButton from 'react-google-button'
-import './SignIn.css'
+import '../style/SignIn.css'
 const Login = ({ firebase }) => (
     <div className="containerSignin">
         <span className="Label">Sign in to start chat</span>

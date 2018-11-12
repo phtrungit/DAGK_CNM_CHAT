@@ -5,7 +5,7 @@ import { map } from 'lodash';
 import { compose, withHandlers, setPropTypes } from 'recompose';
 import { firebaseConnect } from 'react-redux-firebase';
 import Dropzone from 'react-dropzone';
-import './Uploader.css'
+import '../style/Uploader.css'
 // Path within Database for metadata (also used for file Storage path)
 const filesPath = 'uploadedFiles';
 

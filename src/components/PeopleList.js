@@ -9,6 +9,7 @@ import {
 } from 'react-redux-firebase'
 import UserStatus from './UsersStatus'
 import SearchInput, {createFilter} from 'react-search-input'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 const populates = [
     { child: 'presence', root: 'users' }
@@ -27,8 +28,9 @@ class PeopleList extends Component{
         return(
             <div className="people-list" id="people-list">
                 <div className="search">
+
                     <SearchInput className="search-input" onChange={this.searchUpdated} />
-                    <i className="fa fa-search" />
+
                 </div>
                 <ul className="list">
                     Contacts

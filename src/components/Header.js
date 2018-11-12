@@ -6,7 +6,7 @@ import AppBar from '@material-ui/core/AppBar'
 import Toolbar from '@material-ui/core/Toolbar'
 import Button from '@material-ui/core/Button'
 import defaultUserImageUrl from '../static/User.png'
-import './Header.css'
+import '../style/Header.css'
 class Header extends Component{
     render(){
 

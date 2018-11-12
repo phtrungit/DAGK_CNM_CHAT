@@ -1,6 +1,6 @@
 
 import React, { Component } from "react";
-import './Home.css';
+import '../style/Home.css';
 import Header from './Header'
 import PeopleList from './PeopleList'
 import Chat from "./Chat";

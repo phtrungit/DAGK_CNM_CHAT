@@ -8,3 +8,7 @@
     border-style: dashed;
     border-radius: 5px
 }
+.label
+{
+    font-weight: bold;
+}

@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import './Chat.css'
+import '../style/Chat.css'
 class ChatMessage extends Component{
     render(){
         let image="";
@@ -17,7 +17,7 @@ class ChatMessage extends Component{
         return(
             <li className={clf}>
                 <div className={"message-data " }>
-                    <span className="message-data-time">{this.props.messages.time}</span>
+                    <span className="message-data-time">{this.props.messages.time} </span>
                     <span className="message-data-name">{this.props.messages.sender.displayName}</span>
                     <span><img src={this.props.messages.sender.avatarUrl} className="iconchat" /></span>
                 </div>
